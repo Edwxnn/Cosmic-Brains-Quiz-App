@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🚀 Cosmic Quiz - Test Your Space Knowledge</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="stars"></div>
+    <div class="twinkling"></div>
+    
+    <div class="container">
+        <!-- Home Page -->
+        <div id="home-page" class="page active">
+            <div class="hero-section">
+                <h1 class="title">🚀 COSMIC QUIZ</h1>
+                <p class="subtitle">Welcome! How much space is in that brain? Find out here! :D</p>
+                
+                <div class="planet-container">
+                    <div class="planet earth"></div>
+                    <div class="planet mars"></div>
+                    <div class="planet jupiter"></div>
+                </div>
+                
+                <div class="controls">
+                    <div class="question-selector">
+                        <label for="question-count">Number of Questions: </label>
+                    
+                        <span id="question-count">10</span>
+                     
+                    </div>
+                    
+                    <button id="start-btn" class="btn btn-primary">
+                        🛸 Launch Quiz
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quiz Page -->
+        <div id="quiz-page" class="page">
+            <div class="quiz-header">
+                <div class="progress-container">
+                    <div class="progress-bar">
+                        <div id="progress" class="progress-fill"></div>
+                    </div>
+                    <span id="question-counter">Question 1 of 10</span>
+                </div>
+                
+                <div class="timer-container">
+                    <div id="timer">⏱️ <span id="time-left">30</span>s</div>
+                </div>
+            </div>
+            
+            <div class="question-container">
+                <h2 id="question-text">Loading question...</h2>
+                
+                <div id="answers-container" class="answers">
+                    <!-- Answers will be populated by JavaScript -->
+                </div>
+            </div>
+            
+            <div class="quiz-footer">
+                <button id="next-btn" class="btn btn-secondary" style="display: none;">
+ 
+                </button>
+            </div>
+
+        </div>
+
+        <!-- Results Page -->
+        <div id="results-page" class="page">
+            <div class="results-container">
+                <div class="cosmic-achievement">
+                    <div id="achievement-badge" class="badge">
+                        🏆
+                    </div>
+                    <h1 id="results-title">Mission Complete!</h1>
+                </div>
+                
+                <div class="score-display">
+                    <div class="score-circle">
+                        <span id="score-percentage">85%</span>
+                    </div>
+                    <div class="score-details">
+                        <p><span id="correct-answers">8</span> out of <span id="total-questions">10</span> correct</p>
+                        <p>Time taken: <span id="time-taken">2m 30s</span></p>
+                    </div>
+                </div>
+                
+                <div id="performance-message" class="performance-msg">
+                    Excellent work! 🌟
+                </div>
+                
+                <div class="action-buttons">
+                    <button id="restart-btn" class="btn btn-primary">
+                        🔄 Play Again
+                    </button>
+                    <button id="review-btn" class="btn btn-secondary">
+                        📋 Review Answers
+                    </button>
+                </div>
+                
+                <div id="answers-review" class="answers-review" style="display: none;">
+                    <!-- Detailed answers will be populated here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

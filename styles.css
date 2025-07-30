@@ -1,0 +1,450 @@
+/* Space Theme CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Space Mono', monospace;
+    background: linear-gradient(135deg, #0c0c2e 0%, #1a1a3e 50%, #2d1b69 100%);
+    color: #ffffff;
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Animated Stars Background */
+.stars, .twinkling {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    z-index: -1;
+}
+
+.stars {
+    background: #000 url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="300" height="300" viewBox="0 0 300 300"><defs><radialGradient id="a"><stop offset="0%" stop-color="white"/><stop offset="100%" stop-color="transparent"/></radialGradient></defs><circle cx="50" cy="50" r="0.5" fill="url(%23a)"/><circle cx="150" cy="80" r="0.3" fill="url(%23a)"/><circle cx="250" cy="120" r="0.4" fill="url(%23a)"/><circle cx="80" cy="180" r="0.2" fill="url(%23a)"/><circle cx="200" cy="200" r="0.5" fill="url(%23a)"/><circle cx="120" cy="250" r="0.3" fill="url(%23a)"/></svg>') repeat;
+    animation: move-twink-back 200s linear infinite;
+}
+
+.twinkling {
+    background: transparent url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200"><circle cx="30" cy="30" r="0.5" fill="white" opacity="0.8"/><circle cx="100" cy="60" r="0.3" fill="white" opacity="0.6"/><circle cx="170" cy="90" r="0.4" fill="white" opacity="0.9"/></svg>') repeat;
+    animation: move-twink-back 100s linear infinite;
+}
+
+@keyframes move-twink-back {
+    from { background-position: 0 0; }
+    to { background-position: -10000px 5000px; }
+}
+
+.container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+.page {
+    display: none;
+    width: 100%;
+    max-width: 800px;
+    animation: fadeIn 0.6s ease-in;
+}
+
+.page.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Home Page Styles */
+.hero-section {
+    text-align: center;
+    padding: 40px 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.title {
+    font-family: 'Orbitron', monospace;
+    font-size: 3.5rem;
+    font-weight: 900;
+    margin-bottom: 10px;
+    background: linear-gradient(45deg, #00f5ff, #ff006e, #8338ec);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradient-shift 3s ease-in-out infinite;
+}
+
+@keyframes gradient-shift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+    color: #b8b8ff;
+}
+
+/* Planet Animation */
+.planet-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin: 40px 0;
+    height: 80px;
+}
+
+.planet {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    animation: float 6s ease-in-out infinite;
+}
+
+.planet.earth {
+    background: linear-gradient(45deg, #4facfe, #00f2fe);
+    animation-delay: 0s;
+}
+
+.planet.mars {
+    background: linear-gradient(45deg, #ff9a9e, #fecfef);
+    animation-delay: 2s;
+}
+
+.planet.jupiter {
+    background: linear-gradient(45deg, #fad0c4, #ffd1ff);
+    animation-delay: 4s;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); }
+}
+
+.controls {
+    margin-top: 40px;
+}
+
+.question-selector {
+    margin-bottom: 30px;
+}
+
+.question-selector label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #e0e0ff;
+}
+
+.question-selector select {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+    padding: 12px 20px;
+    color: white;
+    font-size: 1rem;
+    min-width: 200px;
+}
+
+.question-selector select option {
+    background: #1a1a3e;
+    color: white;
+}
+
+/* Button Styles */
+.btn {
+    font-family: 'Orbitron', monospace;
+    font-weight: bold;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s;
+}
+
+.btn:hover::before {
+    left: 100%;
+}
+
+.btn-primary {
+    background: linear-gradient(45deg, #ff006e, #8338ec);
+    color: white;
+    box-shadow: 0 4px 15px rgba(255, 0, 110, 0.4);
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(255, 0, 110, 0.6);
+}
+
+.btn-secondary {
+    background: linear-gradient(45deg, #00f5ff, #0099ff);
+    color: white;
+    box-shadow: 0 4px 15px rgba(0, 245, 255, 0.4);
+}
+
+.btn-secondary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 245, 255, 0.6);
+}
+
+/* Quiz Page Styles */
+.quiz-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+}
+
+.progress-container {
+    flex: 1;
+    margin-right: 20px;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(45deg, #00f5ff, #ff006e);
+    border-radius: 4px;
+    transition: width 0.5s ease;
+}
+
+#question-counter {
+    font-size: 0.9rem;
+    color: #b8b8ff;
+}
+
+.timer-container {
+    font-family: 'Orbitron', monospace;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #00f5ff;
+}
+
+.question-container {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 40px;
+    margin-bottom: 30px;
+    backdrop-filter: blur(10px);
+}
+
+#question-text {
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+    line-height: 1.4;
+    color: #ffffff;
+}
+
+.answers {
+    display: grid;
+    gap: 15px;
+}
+
+.answer-btn {
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 15px;
+    padding: 20px;
+    color: white;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: left;
+}
+
+.answer-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: #00f5ff;
+    transform: translateX(10px);
+}
+
+.answer-btn.selected {
+    background: linear-gradient(45deg, #00f5ff, #0099ff);
+    border-color: #00f5ff;
+    box-shadow: 0 4px 15px rgba(0, 245, 255, 0.4);
+}
+
+.answer-btn.correct {
+    background: linear-gradient(45deg, #4caf50, #8bc34a);
+    border-color: #4caf50;
+}
+
+.answer-btn.incorrect {
+    background: linear-gradient(45deg, #f44336, #ff5722);
+    border-color: #f44336;
+}
+
+.answer-btn:disabled {
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+.quiz-footer {
+    text-align: center;
+}
+
+/* Results Page Styles */
+.results-container {
+    text-align: center;
+    padding: 40px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+}
+
+.cosmic-achievement {
+    margin-bottom: 40px;
+}
+
+.badge {
+    font-size: 4rem;
+    margin-bottom: 20px;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-10px); }
+    60% { transform: translateY(-5px); }
+}
+
+#results-title {
+    font-family: 'Orbitron', monospace;
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #00f5ff;
+}
+
+.score-display {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    margin: 40px 0;
+}
+
+.score-circle {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: linear-gradient(45deg, #ff006e, #8338ec);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    font-weight: bold;
+    font-family: 'Orbitron', monospace;
+    box-shadow: 0 8px 32px rgba(255, 0, 110, 0.4);
+}
+
+.score-details {
+    text-align: left;
+}
+
+.score-details p {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: #e0e0ff;
+}
+
+.performance-msg {
+    font-size: 1.3rem;
+    margin: 30px 0;
+    padding: 20px;
+    background: rgba(0, 245, 255, 0.1);
+    border: 1px solid rgba(0, 245, 255, 0.3);
+    border-radius: 15px;
+    color: #00f5ff;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin: 30px 0;
+}
+
+.answers-review {
+    margin-top: 30px;
+    text-align: left;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    padding: 30px;
+}
+
+.review-item {
+    margin-bottom: 25px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    border-left: 4px solid;
+}
+
+.review-item.correct {
+    border-left-color: #4caf50;
+}
+
+.review-item.incorrect {
+    border-left-color: #f44336;
+}
+
+.review-question {
+    font-weight: bold;
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+}
+
+.review-answers {
+    font-size: 0.9rem;
+    color: #b8b8ff;
+}
